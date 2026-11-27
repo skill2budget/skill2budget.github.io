@@ -661,6 +661,22 @@
     a.click();
   });
 
+  // ---------- Enter jumps to the next field ----------
+  // In a one-line field, Enter moves to the next field of the same section and selects
+  // its text, so you can type over it. In the QR link field, Enter generates the code.
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter" || e.shiftKey || e.ctrlKey || e.altKey || e.metaKey || e.isComposing) return;
+    const field = e.target;
+    if (!(field instanceof HTMLInputElement) || !/^(text|number|url)$/.test(field.type)) return;
+    e.preventDefault();
+    if (field === qrUrl) { makeQR(); return; }
+    const section = field.closest("section") || document.body;
+    const fields = $$("input[type=text], input[type=number], input[type=url], textarea", section)
+      .filter((el) => !el.disabled && el.offsetParent !== null);
+    const next = fields[fields.indexOf(field) + 1];
+    if (next) { next.focus(); next.select(); } else field.blur();
+  });
+
   // ---------- first render ----------
   renderCostRows();
   recalc();
