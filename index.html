@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SKILL2BUDGET</title>
+  <meta name="description" content="Ce știi să faci valorează ceva. Calculator de abilități, plicurile cu primii bani, provocarea de 30 de zile și fișe de lucru. Făcut de echipa Cryptochicks.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23EFEFE7'/%3E%3Cpath d='M10 44 C 22 36, 34 50, 54 38' fill='none' stroke='%233D6249' stroke-width='6' stroke-linecap='round'/%3E%3Ctext x='32' y='32' font-family='Arial' font-weight='700' font-size='22' fill='%231E211E' text-anchor='middle'%3Es2b%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="logo" href="#acasa">
+        <span>Skill2Budget</span>
+        <svg width="150" height="10" viewBox="0 0 150 10" aria-hidden="true"><path d="M2 6 C 30 1, 60 9, 90 4 S 135 2, 148 6" fill="none" stroke="#3D6249" stroke-width="3" stroke-linecap="round"/></svg>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Meniu">
+        <svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true"><path d="M2 4 H24 M2 11 H22 M2 18 H24" stroke="#1E211E" stroke-width="2.5" stroke-linecap="round"/></svg>
+      </button>
+      <nav id="nav" class="nav">
+        <a href="#calculator">Calculator</a>
+        <a href="#planificator">Buget</a>
+        <a href="#provocare">30 de zile</a>
+        <a href="#fise">Fișe de lucru</a>
+        <a href="#qr">Cod QR</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="acasa" class="wrap hero">
+      <div class="hero-text">
+        <p class="hand-label">proiect Banometru · făcut de echipa Cryptochicks</p>
+        <h1>Ce știi să faci <mark>valorează</mark> ceva.</h1>
+        <p class="lead">L-am făcut noi, Cryptochicks, pentru oricine vrea să-și gestioneze primii bani. Afli cât valorează ce știi să faci, îți împarți primii bani și îți completezi pașaportul în 30 de zile.</p>
+        <div class="hero-cta">
+          <div class="cta-row">
+            <a class="btn" href="#calculator">Calculează-ți abilitatea</a>
+            <span class="start-here">
+              <svg width="80" height="48" viewBox="0 0 80 48" aria-hidden="true"><path d="M78 42 C 58 46, 30 40, 11 15" fill="none" stroke="#3D6249" stroke-width="2.5" stroke-linecap="round"/><path d="M5 28 L10 13 L25 17" fill="none" stroke="#3D6249" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>începe de aici</span>
+            </span>
+          </div>
+          <a class="text-link" href="#provocare">sau intră în provocarea de 30 de zile</a>
+        </div>
+      </div>
+
+      <div class="hero-note">
+        <div class="sticky">
+          <span class="tape" aria-hidden="true"></span>
+          <p class="sticky-title">De făcut:</p>
+          <ul class="todo" id="todo">
+            <li data-week="0"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="2" y="3" width="21" height="20" fill="none" stroke="#1E211E" stroke-width="2"/><path class="tick" d="M6 13 L11 19 L24 2" fill="none" stroke="#3D6249" stroke-width="3" stroke-linecap="round"/></svg><span>Discover: ce știu să fac?</span></li>
+            <li data-week="1"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="2" y="3" width="21" height="20" fill="none" stroke="#1E211E" stroke-width="2"/><path class="tick" d="M6 13 L11 19 L24 2" fill="none" stroke="#3D6249" stroke-width="3" stroke-linecap="round"/></svg><span>Create: fac ceva concret</span></li>
+            <li data-week="2"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="2" y="3" width="21" height="20" fill="none" stroke="#1E211E" stroke-width="2"/><path class="tick" d="M6 13 L11 19 L24 2" fill="none" stroke="#3D6249" stroke-width="3" stroke-linecap="round"/></svg><span>Earn: cât valorează?</span></li>
+            <li data-week="3"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="2" y="3" width="21" height="20" fill="none" stroke="#1E211E" stroke-width="2"/><path class="tick" d="M6 13 L11 19 L24 2" fill="none" stroke="#3D6249" stroke-width="3" stroke-linecap="round"/></svg><span>Manage: ce fac cu banii?</span></li>
+          </ul>
+          <p class="sticky-foot">~ 20–30 de minute pe săptămână</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXERCIȚIUL 1 · CALCULATOR -->
+    <section id="calculator" class="band">
+      <div class="wrap calc">
+        <div class="calc-left">
+          <header class="sec-head">
+            <p class="hand-label">exercițiul 1</p>
+            <h2>Cât valorează o oră din munca ta?</h2>
+            <p class="intro">Răspunde la cinci întrebări. Bonul din dreapta se completează singur.</p>
+          </header>
+
+          <form id="calc-form" class="questions" autocomplete="off">
+            <label class="q full"><span class="qn">1.</span><span class="ql">Ce știi să faci?</span>
+              <input type="text" id="c-skill" class="hand-input" placeholder="ex. design grafic">
+            </label>
+            <label class="q full"><span class="qn">2.</span><span class="ql">Ce oferi, concret?</span>
+              <input type="text" id="c-service" class="hand-input" placeholder="ex. un afiș pentru un eveniment">
+            </label>
+            <label class="q"><span class="qn">3.</span><span class="ql">Câte ore ți-a luat?</span>
+              <input type="number" id="c-hours" class="hand-input" min="0" step="0.25">
+            </label>
+            <label class="q"><span class="qn">4.</span><span class="ql">Ce preț ceri? (lei)</span>
+              <input type="number" id="c-price" class="hand-input" min="0" step="1">
+            </label>
+            <div class="q full"><span class="qn">5.</span><span class="ql">Ce te-a costat?</span>
+              <div id="cost-rows" class="cost-rows"></div>
+              <button type="button" class="link-btn" id="add-cost">+ încă un cost</button>
+            </div>
+          </form>
+
+          <div class="solve" aria-live="polite">
+            <span class="solve-title">Rezolvare:</span>
+            <span>venit − costuri = ce rămâne</span>
+            <span id="solve-1"></span>
+            <span id="solve-2"></span>
+          </div>
+        </div>
+
+        <div class="calc-right">
+          <div class="receipt-wrap">
+            <span class="tape" aria-hidden="true"></span>
+            <div class="receipt" aria-live="polite">
+              <p class="r-brand">SKILL2BUDGET</p>
+              <p class="r-sub">proiect Banometru · stația 3</p>
+              <p class="r-sub r-gap">bon de calcul · <span id="r-date"></span></p>
+              <div class="r-block">
+                <p class="r-sub left">abilitate: <span id="r-skill"></span></p>
+                <p class="r-strong" id="r-service"></p>
+                <div class="r-line"><span>Preț</span><i></i><span id="r-income"></span></div>
+                <div id="r-cost-lines"></div>
+              </div>
+              <div class="r-total"><span>RĂMÂN</span><span id="r-profit"></span></div>
+              <div class="r-block">
+                <div class="r-line"><span>Timp lucrat</span><i></i><span id="r-hours"></span></div>
+                <div class="r-line"><span>Pe oră</span><i></i><span id="r-hourly"></span></div>
+                <div class="r-line"><span>Marjă</span><i></i><span id="r-margin"></span></div>
+              </div>
+              <p class="r-warn" id="r-warn" hidden></p>
+            </div>
+            <svg class="zigzag" width="100%" height="12" viewBox="0 0 380 12" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 H380 V2 L370 12 L360 2 L350 12 L340 2 L330 12 L320 2 L310 12 L300 2 L290 12 L280 2 L270 12 L260 2 L250 12 L240 2 L230 12 L220 2 L210 12 L200 2 L190 12 L180 2 L170 12 L160 2 L150 12 L140 2 L130 12 L120 2 L110 12 L100 2 L90 12 L80 2 L70 12 L60 2 L50 12 L40 2 L30 12 L20 2 L10 12 L0 2 Z" fill="#FFFFFF"/></svg>
+          </div>
+          <button type="button" class="text-link strong" id="to-planner">trimite suma în buget</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXERCIȚIUL 2 · BUGET -->
+    <section id="planificator" class="wrap sec">
+      <header class="sec-head">
+        <p class="hand-label">exercițiul 2</p>
+        <h2>Ai <span id="h-income">400 de lei</span>. Ce faci cu <span id="h-them">ei</span>?</h2>
+        <p class="intro">Împarte-i în patru plicuri. Nu există o împărțire corectă: contează cum îți argumentezi alegerile.</p>
+      </header>
+
+      <div class="plan-top">
+        <label class="q"><span class="ql">Câți bani ai? (lei)</span>
+          <input type="number" id="p-income" class="hand-input" min="0" step="1">
+        </label>
+        <label class="q wide"><span class="ql">De unde vin?</span>
+          <input type="text" id="p-source" class="hand-input">
+        </label>
+      </div>
+
+      <div class="envelopes" id="alloc"></div>
+      <p class="sum-line" id="alloc-status"></p>
+      <p class="debt" id="debt" hidden></p>
+
+      <div class="goal-row">
+        <label class="q"><span class="ql">Pentru ce economisești?</span>
+          <input type="text" id="p-goal-name" class="hand-input">
+        </label>
+        <label class="q"><span class="ql">Cât costă? (lei)</span>
+          <input type="number" id="p-goal" class="hand-input" min="1" step="1">
+        </label>
+        <div class="goal">
+          <div class="goal-label"><span id="goal-label"></span><span id="goal-pct"></span></div>
+          <div class="goal-track"><span id="goal-fill"></span></div>
+          <span class="hand-note" id="goal-note"></span>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" class="btn" id="p-start">Pornește simularea</button>
+        <button type="button" class="link-btn" id="p-reset">resetează</button>
+        <span class="state" id="sim-state"></span>
+      </div>
+
+      <div class="cards-head">
+        <h3>Apoi tragi câte o carte.</h3>
+        <span>Fiecare te obligă să alegi din ce plic plătești.</span>
+      </div>
+      <div class="ev-cards" id="event-cards"></div>
+      <div id="event-panel" class="sheet event-panel" hidden></div>
+
+      <div class="plan-bottom">
+        <div class="sheet lined">
+          <p class="sheet-title">Istoricul deciziilor</p>
+          <ol class="history" id="history"></ol>
+          <div class="btn-row">
+            <button type="button" class="btn btn-small btn-outline" data-save="A">Salvează ca varianta A</button>
+            <button type="button" class="btn btn-small btn-outline" data-save="B">Salvează ca varianta B</button>
+          </div>
+        </div>
+        <div class="sheet">
+          <p class="sheet-title">Compară două variante pentru aceeași sumă</p>
+          <div id="compare" class="compare"><p class="muted">Salvează varianta A și varianta B ca să le compari aici.</p></div>
+        </div>
+      </div>
+
+      <details class="glossary">
+        <summary>Cuvinte de știut</summary>
+        <dl>
+          <dt>Fond de rezervă</dt><dd>Bani puși deoparte pentru situații neprevăzute, ca să nu atingi economiile pentru obiective.</dd>
+          <dt>Costul de oportunitate</dt><dd>Ce pierzi atunci când alegi o variantă în locul alteia. 84 de lei cheltuiți pe o reducere sunt 84 de lei care nu mai ajung la obiectiv.</dd>
+          <dt>Nevoie vs. dorință</dt><dd>Nevoile sunt lucruri fără de care nu te descurci; dorințele sunt plăcute, dar pot aștepta.</dd>
+          <dt>Dobândă</dt><dd>Suma pe care o primești pentru banii economisiți la bancă sau pe care o plătești când împrumuți bani.</dd>
+          <dt>Reducere ≠ economie</dt><dd>Un produs redus cu 30% tot costă 70% din preț. Economisești doar dacă l-ai fi cumpărat oricum.</dd>
+        </dl>
+      </details>
+    </section>
+
+    <!-- PROVOCAREA -->
+    <section id="provocare" class="dark">
+      <div class="wrap">
+        <div class="pp-top">
+          <div class="pp-intro">
+            <p class="hand-label light">după eveniment</p>
+            <h2>30 de zile.<br>4 ștampile.</h2>
+            <p>O sarcină pe săptămână, 20–30 de minute. Fiecare săptămână terminată îți aduce o ștampilă. Cu toate patru primești certificatul și proiectul tău intră în galeria Banometru.</p>
+            <label class="q light"><span class="ql">Numele tău (apare în pașaport și pe certificat)</span>
+              <input type="text" id="pp-name" class="hand-input" placeholder="Prenume Nume">
+            </label>
+          </div>
+
+          <div class="passport" aria-label="Pașaportul tău Skill2Budget">
+            <div class="pp-page pp-left">
+              <p class="pp-brand">PAȘAPORT · SKILL2BUDGET</p>
+              <div class="pp-id">
+                <div class="pp-photo">foto</div>
+                <div class="pp-fields">
+                  <div>Nume<span class="hand" id="pp-show-name"></span></div>
+                  <div>Abilitate<span class="hand" id="pp-show-skill"></span></div>
+                </div>
+              </div>
+              <div class="mrz" id="mrz"></div>
+            </div>
+            <div class="pp-page pp-right" id="stamps"></div>
+          </div>
+        </div>
+
+        <div class="weeks" id="weeks"></div>
+
+        <div class="certificate-wrap" id="cert-wrap" hidden>
+          <div class="certificate" id="certificate">
+            <p class="hand-label">certificat</p>
+            <h3>Skill2Budget Passport</h3>
+            <p>Se acordă</p>
+            <p class="cert-name" id="cert-name">—</p>
+            <p>pentru parcurgerea celor 4 săptămâni ale provocării<br><strong>Discover → Create → Earn → Manage</strong></p>
+            <p class="cert-skill" id="cert-skill"></p>
+            <p class="cert-date">emis de echipa Cryptochicks · <span id="cert-date"></span></p>
+          </div>
+          <div class="btn-row center">
+            <button type="button" class="btn btn-light" data-print="cert-wrap">Descarcă / printează certificatul</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FIȘE DE LUCRU -->
+    <section id="fise" class="wrap sec">
+      <header class="sec-head">
+        <p class="hand-label">materiale</p>
+        <h2>Fișele de lucru, pentru stații sau acasă.</h2>
+        <p class="intro">Le completezi pe ecran sau le printezi.</p>
+      </header>
+
+      <div class="sheets">
+        <article class="sheet worksheet" id="sheet-passport">
+          <h3>My Skill Passport</h3>
+          <p class="muted">Etapa 1 · Discover Your Skill. Nu e un test psihologic, e o fișă de autocunoaștere.</p>
+          <label>Ce știu deja să fac?<textarea rows="2"></textarea></label>
+          <label>Ce activități învăț repede?<textarea rows="2"></textarea></label>
+          <label>Pentru ce îmi cer colegii sau prietenii ajutorul?<textarea rows="2"></textarea></label>
+          <label>Ce îmi place să creez sau să organizez?<textarea rows="2"></textarea></label>
+          <label>Ce abilitate aș vrea să îmbunătățesc?<textarea rows="2"></textarea></label>
+          <table class="domains">
+            <thead><tr><th>Domeniu</th><th>Exemple de abilități</th></tr></thead>
+            <tbody>
+              <tr><td>Digital</td><td>Design, programare, editare video</td></tr>
+              <tr><td>Educațional</td><td>Explicarea unor materii, meditații</td></tr>
+              <tr><td>Creativ</td><td>Fotografie, ilustrație, handmade</td></tr>
+              <tr><td>Comunicare</td><td>Social media, prezentări, redactare</td></tr>
+              <tr><td>Organizare</td><td>Organizarea evenimentelor, planificare</td></tr>
+            </tbody>
+          </table>
+          <label>Abilitatea aleasă<input type="text"></label>
+          <label>Un exemplu care arată ce știu să fac<input type="text"></label>
+          <label>Unde aș putea să o valorific<input type="text"></label>
+          <button type="button" class="link-btn" data-print="sheet-passport">printează fișa</button>
+        </article>
+
+        <article class="sheet worksheet" id="sheet-price">
+          <h3>Price Your Skill</h3>
+          <p class="muted">Etapa 3 · Fișa echipei.</p>
+          <label>Echipa și provocarea aleasă<input type="text"></label>
+          <label>Cât timp am investit?<input type="text"></label>
+          <label>Ce resurse sau materiale am folosit?<textarea rows="2"></textarea></label>
+          <label>Ce costuri am avut?<input type="text"></label>
+          <label>Ce preț ar fi corect și de ce?<textarea rows="2"></textarea></label>
+          <label>Ce venit am încasa?<input type="text"></label>
+          <label>Ce rămâne după costuri?<input type="text"></label>
+          <p class="formula">venit − costuri = profit<br><span>ex. 100 lei − 15 lei = 85 lei</span></p>
+          <button type="button" class="link-btn" data-print="sheet-price">printează fișa</button>
+        </article>
+      </div>
+
+      <aside class="sticky legal">
+        <span class="tape" aria-hidden="true"></span>
+        <p class="sticky-title">Dacă vrei să faci asta de-adevăratelea:</p>
+        <ul>
+          <li>Sub 15 ani, angajarea e interzisă.</li>
+          <li>La 15 ani, doar cu acordul părinților, pentru activități potrivite.</li>
+          <li>De la 16 ani poți lucra, dar până la 18 ai program limitat și protecție specială.</li>
+          <li>Freelancingul nu e automat permis: verifică întâi cu un adult și un specialist.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- QR -->
+    <section id="qr" class="band">
+      <div class="wrap qr">
+        <div class="qr-text">
+          <p class="hand-label">acces rapid</p>
+          <h2>Scanează-l de pe afișe sau din postări.</h2>
+          <p class="intro">Codul duce direct la calculator, la plicuri și la fișe. Pune-l pe afișe, pe stațiile de la eveniment sau în postările de Instagram.</p>
+          <label class="q"><span class="ql">Linkul site-ului</span>
+            <input type="url" id="qr-url" class="hand-input small" placeholder="https://…">
+          </label>
+          <div class="btn-row">
+            <button type="button" class="btn btn-small" id="qr-make">Generează codul</button>
+            <button type="button" class="link-btn" id="qr-download">descarcă PNG</button>
+          </div>
+        </div>
+        <div class="qr-sticker">
+          <span class="tape tl" aria-hidden="true"></span>
+          <span class="tape br" aria-hidden="true"></span>
+          <div id="qr-code"></div>
+          <p class="qr-caption" id="qr-caption"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="hand">făcut de echipa Cryptochicks · Banometru 2026</span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
